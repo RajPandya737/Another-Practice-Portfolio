@@ -84,8 +84,23 @@ h3 {
 /* May have to change to percentages for mobil stability */
 :root {
   --card-height: 65vh;
-  --card-width: 130vh;
+  --card-width: 40vh;
 }
+
+@media only screen and (min-width: 767px){
+  :root {
+    --card-height: 65vh;
+    --card-width: 60vh;
+  }
+}
+
+@media only screen and (min-width: 1000px){
+  :root {
+    --card-height: 65vh;
+    --card-width: 100vh;
+  }
+}
+
 
 body {
   min-height: 100vh;
