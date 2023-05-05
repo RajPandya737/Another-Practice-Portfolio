@@ -56,34 +56,19 @@ body {
 }
 
 h1 {
-  position: auto;
-  text-align: left;
-  width: fit-content;
-  margin-left: 10%;
-  width: var(--card-width);
   color: #b6eada;
   font-family: "Montserrat", sans-serif;
+  position: relative;
+  margin: 6%;
 }
 h3 {
-  position: auto;
-  text-align: center;
-  text-align: left;
-  margin-left: 5%;
-  width: var(--card-width);
   color: #b6eada;
   font-family: "Montserrat", sans-serif;
+  position: relative;
+  margin: 6%
 }
 
-.name {
-  position: relative;
-  bottom: 30%;
-}
 
-.intro {
-  position: relative;
-  right: 47%;
-  bottom: 10%;
-}
 
 .top_margin {
   position: relative;
@@ -120,71 +105,73 @@ body {
   object-fit: fill;
 }
 
-.card {
-  background: #191c29;
-  width: var(--card-width);
-  height: var(--card-height);
-  padding: 3px;
+.card_container {
   position: relative;
-  border-radius: 6px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  display: flex;
-  font-size: 1.5em;
-  color: rgb(88 199 250 / 0%);
-  cursor: pointer;
-  font-family: cursive;
+  padding: 40px 0;
+  flex-wrap: wrap;
 }
 
-/* .card:hover {
-  color: rgb(88 199 250 / 100%);
-  transition: color 1s;
-} */
-/* .card:hover:before, .card:hover:after {
-  animation: none;
-  opacity: 0;
-} */
 
-.card::before {
-  content: "";
-  width: 102%;
-  height: 102%;
-  border-radius: 8px;
-  background-image: linear-gradient(
-    var(--rotate),
-    #5ddcff,
-    #3c67e3 43%,
-    #4e00c2
-  );
+
+.card_container .card {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  color: #fff;
+  background: rgb(88 199 250 / 0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 30px;
+  transition: 0.5s;
+}
+
+.card_container .card .card_span {
   position: absolute;
-  z-index: -1;
-  top: -1%;
-  left: -1%;
-  animation: spin 2.5s linear infinite;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: rgb(0,0,0,0.6);
+  z-index: 2;
+}
+
+.card_container .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
 }
 
 .card::after {
-  position: absolute;
   content: "";
-  top: calc(var(--card-height) / 6);
+  position: absolute;
+  top: 0;
   left: 0;
-  right: 0;
-  z-index: -1;
-  height: 100%;
   width: 100%;
-  margin: 0 auto;
-  transform: scale(0.8);
-  filter: blur(calc(var(--card-height) / 6));
-  background-image: linear-gradient(
-    var(--rotate),
-    #5ddcff,
-    #3c67e3 43%,
-    #4e00c2
-  );
-  opacity: 1;
-  transition: opacity 0.5s;
-  animation: spin 2.5s linear infinite;
+  height: 100%;
+  background: linear-gradient(60deg, #03a9f4, #ff0058);
+  background-size: 600% 600%;
+  filter: blur(30px);
+  animation: bgAnimatedGradient 20s infinite linear;
+}
+
+@keyframes bgAnimatedGradient {
+  0%{
+    background-position: 0 85%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-positon: 0 85%;
+  }
 }
 
 @keyframes spin {
@@ -231,7 +218,8 @@ a {
 }
 
 @keyframes animate_text {
-  40%,60% {
+  40%,
+  60% {
     left: 100%;
   }
   100% {
