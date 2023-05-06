@@ -57,18 +57,94 @@ body {
 
 h1 {
   color: #b6eada;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poiret One", cursive;
   position: relative;
   margin: 6%;
+  font-size: 40px;
 }
 h3 {
   color: #b6eada;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poiret One", cursive;
   position: relative;
-  margin: 6%
+  margin: 6%;
 }
 
+.flexbox_links_container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 
+.flexbox_links_container .github {
+  width: 40px;
+}
+.flexbox_links_container .linkedin {
+  width: 40px;
+}
+.flexbox_links_container .instagram {
+  width: 40px;
+}
+.flexbox_links_container .mail {
+  width: 40px;
+}
+
+.flexbox_links_container .special_link {
+  opacity: 0%;
+}
+
+.flexbox_item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 10%;
+  width: 40px;
+  height: 40px;
+}
+
+.neon_button {
+  position: relative;
+  display: inline-block;
+  padding: 15px, 30px;
+  background: #b6eada;
+  width: 40px;
+  height: 40px;
+  color: #ff6750;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  border-radius: 50%;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2;
+}
+
+.neon_button:hover {
+  color: #255784;
+  background: #ff6750;
+  box-shadow: 0 0 10px #ff6750, 0 0 40px #ff6750, 0 0 80px #ff6750;
+  transition-delay: 0s;
+}
+
+.set-up {
+  color: #b6eada;
+  font-family: monospace;
+  font-size: 17px;
+  align-items: center;
+}
+
+.type {
+  color: #ff6750;
+}
+
+@keyframes typing {
+  40%,
+  60% {
+    left: calc(100% + 3px);
+  }
+  100% {
+    left: 0;
+  }
+}
 
 .top_margin {
   position: relative;
@@ -81,26 +157,10 @@ h3 {
   inherits: false;
 }
 
-/* May have to change to percentages for mobil stability */
 :root {
   --card-height: 65vh;
   --card-width: 40vh;
 }
-
-@media only screen and (min-width: 767px){
-  :root {
-    --card-height: 65vh;
-    --card-width: 60vh;
-  }
-}
-
-@media only screen and (min-width: 1000px){
-  :root {
-    --card-height: 65vh;
-    --card-width: 100vh;
-  }
-}
-
 
 body {
   min-height: 100vh;
@@ -114,10 +174,51 @@ body {
 }
 
 .profile_pic {
-  width: 50px;
-  background-color: black;
-  border-radius: 50%;
-  object-fit: fill;
+  display: none;
+}
+
+@media only screen and (min-width: 767px) {
+  :root {
+    --card-height: 65vh;
+    --card-width: 60vh;
+  }
+  .flexbox_links_container .special_link {
+    display: none;
+  }
+  .profile_pic {
+    width: 140px;
+    background-color: black;
+    border-radius: 50%;
+    object-fit: fill;
+    float: left;
+    background: #ff6750;
+    box-shadow: 0 0 10px #ff6750, 0 0 40px #ff6750, 0 0 80px #ff6750;
+    transition-delay: 0s;
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  :root {
+    --card-height: 65vh;
+    --card-width: 100vh;
+  }
+  .profile_pic {
+    width: 200px;
+    background-color: black;
+    border-radius: 50%;
+    object-fit: fill;
+    float: left;
+    background: #ff6750;
+    box-shadow: 0 0 10px #ff6750, 0 0 40px #ff6750, 0 0 80px #ff6750;
+    transition-delay: 0s;
+    display: block;
+  }
+}
+.upper_half {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
 }
 
 .card_container {
@@ -128,8 +229,6 @@ body {
   padding: 40px 0;
   flex-wrap: wrap;
 }
-
-
 
 .card_container .card {
   position: relative;
@@ -150,7 +249,7 @@ body {
   left: 6px;
   right: 6px;
   bottom: 6px;
-  background: rgb(0,0,0,0.6);
+  background: rgb(0, 0, 0, 0.6);
   z-index: 2;
 }
 
@@ -174,11 +273,12 @@ body {
   background: linear-gradient(60deg, #03a9f4, #ff0058);
   background-size: 600% 600%;
   filter: blur(30px);
-  animation: bgAnimatedGradient 20s infinite linear;
+  animation: bgAnimatedGradient 40s infinite linear;
+  border-radius: 5%;
 }
 
 @keyframes bgAnimatedGradient {
-  0%{
+  0% {
     background-position: 0 85%;
   }
   50% {
@@ -196,6 +296,10 @@ body {
   100% {
     --rotate: 360deg;
   }
+}
+
+.content {
+  text-align: center;
 }
 
 a {
